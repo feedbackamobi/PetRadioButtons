@@ -1,0 +1,84 @@
+package you.petradiobuttonkenya;
+
+import javax.swing.*; // Importing swing package for GUI components
+import java.awt.*; // Importing awt package for layouts and colors
+import java.awt.event.*; // Importing event handling package
+
+public class PetRadioButtonKenya
+{
+    public static void main(String[] args)
+    {
+        // Creating the JFrame (main window)
+        JFrame myFrame = new JFrame("Pet Selection in Kenya"); // Title of the window
+        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close operation
+        myFrame.setSize(400, 300); // Setting the size of the window
+
+        // Creating a JPanel to hold the radio buttons
+        JPanel myPanel = new JPanel(); 
+        myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS)); // Vertical layout for radio buttons
+
+        // Creating radio buttons for different pet options
+        JRadioButton myBirdButton = new JRadioButton("Bird");
+        JRadioButton myCatButton = new JRadioButton("Cat");
+        JRadioButton myDogButton = new JRadioButton("Dog");
+        JRadioButton myRabbitButton = new JRadioButton("Rabbit");
+        JRadioButton myChickenButton = new JRadioButton("Chicken");
+
+        // Adding the buttons to a ButtonGroup so only one can be selected at a time
+        ButtonGroup myGroup = new ButtonGroup();
+        myGroup.add(myBirdButton);
+        myGroup.add(myCatButton);
+        myGroup.add(myDogButton);
+        myGroup.add(myRabbitButton);
+        myGroup.add(myChickenButton);
+
+        // Adding radio buttons to the panel
+        myPanel.add(myBirdButton);
+        myPanel.add(myCatButton);
+        myPanel.add(myDogButton);
+        myPanel.add(myRabbitButton);
+        myPanel.add(myChickenButton);
+
+        // Adding the panel to the frame
+        myFrame.add(myPanel, BorderLayout.CENTER);
+
+        // Creating an ActionListener to display a message box with the selected pet
+        ActionListener myListener = new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                // Checking which button is selected and displaying a message
+                if (myBirdButton.isSelected()) 
+                {
+                    JOptionPane.showMessageDialog(myFrame, "Umechagua Ndege");
+                } 
+                else if (myCatButton.isSelected()) 
+                {
+                    JOptionPane.showMessageDialog(myFrame, "Umechagua Paka");
+                } 
+                else if (myDogButton.isSelected()) 
+                {
+                    JOptionPane.showMessageDialog(myFrame, "Umechagua Mbwa");
+                } 
+                else if (myRabbitButton.isSelected()) 
+                {
+                    JOptionPane.showMessageDialog(myFrame, "Umechagua Sungura");
+                } 
+                else if (myChickenButton.isSelected()) 
+                {
+                    JOptionPane.showMessageDialog(myFrame, "Umechagua Kuku"); 
+                }
+            }
+        };
+
+        // Adding the ActionListener to each radio button
+        myBirdButton.addActionListener(myListener);
+        myCatButton.addActionListener(myListener);
+        myDogButton.addActionListener(myListener);
+        myRabbitButton.addActionListener(myListener);
+        myChickenButton.addActionListener(myListener);
+
+        // Set frame to be visible
+        myFrame.setVisible(true);
+    }
+}
